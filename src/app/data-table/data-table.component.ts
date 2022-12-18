@@ -13,7 +13,6 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.prod.getProducts().subscribe(data => {
       this.data = data;
-      console.log(this.data)
     });
   }
 }
