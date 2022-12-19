@@ -1,6 +1,6 @@
 <!-- navbar.component.html -->
 
-<nav class="bg-blue-500 text-white p-6 flex items-center justify-between">
+<nav class="bg-blue-500 shadow-2xl text-white p-6 flex items-center justify-between">
     <div class="flex items-center">
         <a routerLink="/" class="text-xl">Data Table App</a>
         <div class="ml-6">
@@ -8,11 +8,11 @@
             <a routerLink="/products" class="px-3 py-2 rounded-md hover:bg-blue-400">products</a>
         </div>
     </div>
-    <div>
-        <button class="flex items-center rounded-md hover:bg-blue-400">
-            <a routerLink="/my-cart" class="px-3 py-2 rounded-md hover:bg-blue-400"> My cart</a>
-            <mat-icon style="color: white">shopping_cart</mat-icon>
-        </button>
+    <div class="flex justify-center items-center">
+        <a routerLink="/my-cart" class="p-2 flex rounded-md hover:bg-blue-400">
+                <mat-icon style="color: white">shopping_cart</mat-icon>
+                <p>My cart</p>
+        </a>
     </div>
 </nav>
 

@@ -1,5 +1,4 @@
-<div class="p-10 space-y-10">
-    
+<div class="p-10 space-y-10">    
     <div class="flex justify-center items-center" *ngIf="!data">
         <img src="../../assets/images/loader.gif" alt="An animated image">
     </div>
@@ -36,7 +35,7 @@
                         {{item.phone}}
                     </td>
                     <td class="py-4 px-6">
-                        {{item.updatedAt}}
+                        {{item.updatedAt | date: 'long' }}
                     </td>
                     <td class="py-4 px-6 space-x-6">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
