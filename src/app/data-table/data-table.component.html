@@ -1,6 +1,23 @@
-<div class="p-10 space-y-10">    
+<div class="p-10 space-y-10">
     <div class="flex justify-center items-center" *ngIf="!data">
         <img src="../../assets/images/loader.gif" alt="An animated image">
+    </div>
+    <div *ngIf="data">
+        <p>Sort by</p>
+        <select class="block w-[20rem] p-2 bg-blue-400 mt-1 dark:bg-gray-800 border-black dark:border-gray-700 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            <option>Price</option>
+            <option>Name</option>
+            <option>Date created</option>
+        </select>
+        <!-- <button>
+            name
+        </button>
+        <button>
+            price
+        </button>
+        <button>
+            date
+        </button> -->
     </div>
     <div *ngIf="data" class="overflow-x-auto relative shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -10,7 +27,10 @@
                         Product name
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Color
+                        Product short code
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Description
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Category
@@ -19,23 +39,38 @@
                         Price
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Action
+                        Origin
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Created Date
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Actions
                     </th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of data">
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{item.username}}
+                        {{item.productName}}
                     </th>
                     <td class="py-4 px-6">
-                        {{item.email}}
+                        {{item.productShortCode}}
                     </td>
                     <td class="py-4 px-6">
-                        {{item.phone}}
+                        {{item.description}}
                     </td>
                     <td class="py-4 px-6">
-                        {{item.updatedAt | date: 'long' }}
+                        {{item.category}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.price | currency: 'USD': 'symbol'}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ item.origin }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.createdAt | date: 'short' }}
                     </td>
                     <td class="py-4 px-6 space-x-6">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
@@ -45,11 +80,23 @@
             </tbody>
         </table>
     </div>
-
-    <div class="flex justify-center items-center">
-            <a routerLink="/products/create">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded">
-                    Add new product
-                </button>
-            </a>
-</div>
+    <div class="flex space-x-10 justify-center items-center">
+        <button
+            (click)="dec()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center">
+            <mat-icon>arrow_backward</mat-icon>
+        </button>
+        <p>page {{page+1}}</p>
+        <button
+            (click)="inc()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+    <div *ngIf="data" class="flex justify-center items-center">
+        <a routerLink="/products/create">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded">
+                Add new product
+            </button>
+        </a>
+    </div>
