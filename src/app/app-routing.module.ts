@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'products', component: DataTableComponent },
   { path: 'product/:id', component: ProductComponent },
-  { path: 'product/create', component: CreateProductComponent },
+  { path: 'products/create', component: CreateProductComponent },
   { path: 'my-cart', component: CartComponent }
 ];
 
