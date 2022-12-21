@@ -4,7 +4,8 @@
     </div>
     <div *ngIf="data">
         <p>Sort by</p>
-        <select class="block w-[20rem] p-2 bg-blue-400 mt-1 dark:bg-gray-800 border-black dark:border-gray-700 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+        <select
+            class="block w-[20rem] p-2 bg-blue-400 mt-1 dark:bg-gray-800 border-black dark:border-gray-700 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
             <option>Price</option>
             <option>Name</option>
             <option>Date created</option>
@@ -23,6 +24,9 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
+                    <th scope="col" class="py-3 px-6">
+                        Product Preview
+                    </th>
                     <th scope="col" class="py-3 px-6">
                         Product name
                     </th>
@@ -51,6 +55,9 @@
             </thead>
             <tbody *ngFor="let item of data">
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <td class="py-4 px-6">
+                        <img src={{item.imageURL}} height="60" width="70" alt="">
+                    </td>
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{item.productName}}
                     </th>
@@ -81,14 +88,12 @@
         </table>
     </div>
     <div class="flex space-x-10 justify-center items-center">
-        <button
-            (click)="dec()"
+        <button (click)="dec()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center">
             <mat-icon>arrow_backward</mat-icon>
         </button>
         <p>page {{page+1}}</p>
-        <button
-            (click)="inc()"
+        <button (click)="inc()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center">
             <mat-icon>arrow_forward</mat-icon>
         </button>

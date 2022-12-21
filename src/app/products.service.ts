@@ -6,15 +6,41 @@ import { serverlessAPI } from './environments/env';
   providedIn: 'root'
 })
 export class ProductsService {
+  items = [];
+  total: number;
 
   constructor(private http: HttpClient) { }
+  
   sortProducts(opt: string) { 
     return this.http.get(`${serverlessAPI}/products?sort=${opt}`);
   }
+
   getProducts(page: number, perPage: number, sort: string) {
   return this.http.get(`${serverlessAPI}/products?page=${page}&perPage=${perPage}&sort=${sort}`);
   }
+
   sendDataToAPI(data: any) {
-    return this.http.post('https://api.example.com/post', data);
+    return this.http.post(`${serverlessAPI}/products`, data);
+  }
+
+  addToCart(product, quantity) {
+    this.items.push({
+      product: product,
+      quantity: quantity,
+      totalPrice: product.price * quantity
+    });
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  getTotalPrice() {
+    let total = 0;
+    for (const item of this.items) {
+      total += item.totalPrice;
+    }
+    this.total = total;
+    return total;
   }
 }
