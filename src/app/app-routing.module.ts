@@ -5,12 +5,14 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'products', component: DataTableComponent },
-  { path: 'products/create', component: CreateProductComponent },
+  { path: 'product/:id', component: ProductComponent },
+  { path: 'product/create', component: CreateProductComponent },
   { path: 'my-cart', component: CartComponent }
 ];
 

@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -34,6 +35,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MatBadgeModule,
     MatInputModule,
     MatTableModule,
     MatButtonModule,

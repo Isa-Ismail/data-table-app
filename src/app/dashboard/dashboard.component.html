@@ -18,9 +18,11 @@
                 <a routerLink="/product/{{item._id}}">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded">Detail</button>
                 </a>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded" (click)="addToCart(item)">
-                    Add to cart
-                </button>
+                <a routerLink="/my-cart">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded" (click)="addToCart(item)">
+                        Add to cart
+                    </button>
+                </a>
             </mat-card-actions>
         </mat-card>
     </div>

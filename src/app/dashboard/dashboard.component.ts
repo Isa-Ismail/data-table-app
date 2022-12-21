@@ -22,7 +22,7 @@ export class DashboardComponent {
   }
 
   addToCart(product) {
-    this.cart.find(item => item.product._id === product._id) ?  this.cart : this.prod.addToCart(product, this.q);this.cart = this.prod.items;
+    !this.cart.find(item => item.product._id === product._id) && this.prod.addToCart(product, this.q);this.cart = this.prod.items;
     console.log(this.cart);
   }
 }

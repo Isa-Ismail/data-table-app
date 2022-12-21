@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { serverlessAPI } from './environments/env';
 
@@ -6,6 +6,7 @@ import { serverlessAPI } from './environments/env';
   providedIn: 'root'
 })
 export class ProductsService {
+  @Input() cart: number = 0;
   items = [];
   total: number;
 
@@ -24,6 +25,7 @@ export class ProductsService {
   }
 
   addToCart(product, quantity) {
+    this.cart++;
     this.items.push({
       product: product,
       quantity: quantity,
