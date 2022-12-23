@@ -18,6 +18,11 @@ export class DataTableComponent implements OnInit {
     this.ngOnInit();
   }
 
+  paging(sort) {
+    this.perPage = sort.target.value;
+    this.ngOnInit();
+  }
+
   delete (id: string) {
     this.prod.deleteProduct(id).subscribe(data => {
       console.log(data);
