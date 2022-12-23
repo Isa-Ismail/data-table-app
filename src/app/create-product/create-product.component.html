@@ -1,56 +1,59 @@
 <div class="flex justify-center items-center p-10">
-    <form class="w-[40rem] bg-blue-400 p-4 rounded-md space-y-8">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="w-[40rem] bg-blue-400 p-4 rounded-md space-y-8">
     <div class="mb-6">
         <label for="Product name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product name</label>
-        <input type="text" id="name" name="productName"
+        <input formControlName="productName" type="text" id="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required>
+    </div>
+    <div class="mb-6">
+        <label for="Product short code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Short code</label>
+        <input formControlName="productShortCode" type="text" id="productShortCode"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
     </div>
     <div class="mb-6">
         <label for="Product price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Price</label>
-        <input type="number" id="price" name="price"
+        <input formControlName="price" type="number" id="price"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
     </div>
     <div class="mb-6">
         <label for="Product description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product description</label>
-        <input type="textarea" id="description" name="description"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required>
-    </div>
-    <div class="mb-6">
-        <label for="Product origin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product origin</label>
-        <input type="text" id="Product origin" name="origin"
+        <input formControlName="description" type="textarea" id="description" name="description"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
     </div>
     <div class="mb-6">
         <label for="Product origin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product category</label>
-        <select class="w-[38rem] p-3 rounded-md cursor-pointer">
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
+        <select formControlName="category" class="w-[38rem] p-3 rounded-md cursor-pointer">
+            <option *ngFor="let cat of categories" [value]="cat" [innerHTML]="cat">
+            </option>
         </select>
     </div>
     <div class="mb-6">
         <label for="Product origin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Origin</label>
-        <select class="w-[38rem] p-3 rounded-md cursor-pointer">
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
+        <select formControlName="origin" class="w-[38rem] p-3 rounded-md cursor-pointer">
+            <option *ngFor="let org of origin" [value]="org" [innerHTML]="org">
+            </option>
         </select>
     </div>
     <div>
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
-        <input
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Image URL</label>
+        <input formControlName="imageURL"
             class="block w-full p-2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            aria-describedby="user_avatar_help" id="user_avatar" type="file">
+            aria-describedby="user_avatar_help" id="user_avatar" type="text">
+    </div>
+    <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Is Best</label>
+        <select formControlName="isBest" formControlName="isBest" class="w-[38rem] p-3 rounded-md cursor-pointer">
+            <option va>Yes</option>
+            <option>No</option>
+        </select>
     </div>
     <div class="flex justify-center items-center">
-        <button class="bg-pink-200 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-            Button
+        <button type="submit" class="bg-pink-200 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            Submit
         </button>
     </div>
     </form>

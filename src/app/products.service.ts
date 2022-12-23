@@ -19,6 +19,10 @@ export class ProductsService {
   getProducts(page: number, perPage: number, sort: string) {
   return this.http.get(`${serverlessAPI}/products?page=${page}&perPage=${perPage}&sort=${sort}`);
   }
+  
+  deleteProduct(id: string) {
+    return this.http.delete(`${serverlessAPI}/products/${id}`);
+  }
 
   sendDataToAPI(data: any) {
     return this.http.post(`${serverlessAPI}/products`, data);
