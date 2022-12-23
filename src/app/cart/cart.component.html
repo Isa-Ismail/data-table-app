@@ -1,7 +1,12 @@
-<div class="m-20">
-    <h2>Grand Total: {{total | currency: 'USD': 'symbol'}}</h2>
+<div *ngIf="cart.length===0" class="flex justify-center items-center space-x-10 p-20">
+    <div>
+        <h2>Grand Total: {{total | currency: 'USD': 'symbol'}}</h2>
+        <h2>Your cart is empty !!!</h2>
+        <a routerLink="/" class="text-blue-500 hover:text-blue-700">Go to shopping</a>
+    </div>
 </div>
-<div *ngIf="cart" class="overflow-x-auto relative shadow-md sm:rounded-lg w-[50rem] m-20">
+<div *ngIf="cart.length!==0" class="overflow-x-auto relative shadow-md sm:rounded-lg w-[50rem] m-20 p-2">
+    <h2>Grand Total: {{total | currency: 'USD': 'symbol'}}</h2>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

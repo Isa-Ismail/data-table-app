@@ -47,8 +47,8 @@
     <div>
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Is Best</label>
         <select formControlName="isBest" formControlName="isBest" class="w-[38rem] p-3 rounded-md cursor-pointer">
-            <option va>Yes</option>
-            <option>No</option>
+            <option [value]="true" [innerHTML]="true">
+                <option [value]="false" [innerHTML]="false">
         </select>
     </div>
     <div class="flex justify-center items-center">

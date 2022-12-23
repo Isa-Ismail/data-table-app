@@ -6,7 +6,7 @@ import { serverlessAPI } from './environments/env';
   providedIn: 'root'
 })
 export class ProductsService {
-  @Input() cart: number = 0;
+  cart: number = 0;
   items = [];
   total: number;
 
@@ -24,9 +24,15 @@ export class ProductsService {
     return this.http.delete(`${serverlessAPI}/products/${id}`);
   }
 
-  sendDataToAPI(data: any) {
-    return this.http.post(`${serverlessAPI}/products`, data);
+  updateProduct (id: string, data: any) {
+    return this.http.put(`${serverlessAPI}/products/${id}`, data);
   }
+
+  // sendDataToAPI(data: any) {
+  //   return this.http.post(`${serverlessAPI}/products`, data).subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
 
   addToCart(product, quantity) {
     this.cart++;

@@ -3,12 +3,12 @@
         <img src="../../assets/images/loader.gif" alt="An animated image">
     </div>
     <div *ngIf="data">
-        <p>Sort by</p>
-        <select
-            class="block w-[20rem] p-2 bg-blue-400 mt-1 dark:bg-gray-800 border-black dark:border-gray-700 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-            <option>Price</option>
-            <option>Name</option>
-            <option>Date created</option>
+        <select (change)="sorting($event)"
+            class="block w-[10rem] p-2 bg-slate-100 cursor-pointer mt-1 dark:bg-gray-800 border-black dark:border-gray-700 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            <option >Sort by</option>
+            <option value="price">Price</option>
+            <option value="name">Name</option>
+            <option value="date">Date created</option>
         </select>
         <!-- <button>
             name
@@ -80,8 +80,8 @@
                         {{item.createdAt | date: 'short' }}
                     </td>
                     <td class="py-4 px-6 space-x-6">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                        <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                        <button (click)="delete(item._id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
                     </td>
                 </tr>
             </tbody>

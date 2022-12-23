@@ -11,7 +11,8 @@ import { serverlessAPI } from '../environments/env';
 export class CreateProductComponent implements OnInit {
   form: FormGroup;
   categories: string[] = ['electronics', 'grocery', 'fashion', 'home', 'sports'];
-  origin: string[] = ['Europe', 'china', 'America', 'USA', 'India'];
+  origin: string[] = ['Europe', 'china', 'Africa', 'USA', 'India'];
+  best : boolean[] = [true, false];
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
@@ -23,14 +24,16 @@ export class CreateProductComponent implements OnInit {
       category: ['', Validators.required],
       price: ['', Validators.required],
       imageURL: ['', Validators.required],
-      isBest: ['', Validators.required],
+      isBest: [''],
       origin: ['', Validators.required]
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
-      // this.http.post(`${serverlessAPI}/products`, this.form.value).subscribe();
+      this.http.post(`${serverlessAPI}/products`, this.form.value).subscribe(data => {
+        console.log(data);
+      });
       console.log(this.form.value);
     }
   }

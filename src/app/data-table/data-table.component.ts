@@ -13,6 +13,18 @@ export class DataTableComponent implements OnInit {
 
   constructor(private prod: ProductsService) { }
 
+  sorting(sort) {
+    this.sort = sort.target.value;
+    this.ngOnInit();
+  }
+
+  delete (id: string) {
+    this.prod.deleteProduct(id).subscribe(data => {
+      console.log(data);
+      this.ngOnInit();
+    });
+  }
+  
   inc(): void {
     this.page++;
     this.ngOnInit();
@@ -24,7 +36,6 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.prod.getProducts(this.page, this.perPage, this.sort).subscribe(data => {
       this.data = data;
-      console.log(data)
     });
   }
 }
