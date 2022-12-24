@@ -1,29 +1,37 @@
 <div class="flex justify-center items-center py-20" *ngIf="!data">
     <img src="../../assets/images/loader.gif" alt="An animated image">
 </div>
-<div class="flex flex-wrap justify-center items-center space-x-10 space-y-10 p-10" *ngIf="data">
-    <div *ngFor="let item of data">
-        <mat-card class="p-[4rem] h-[30rem] w-[30rem]">
-            <mat-card-header>
-                <mat-card-title>{{item.productName}}</mat-card-title>
-                <mat-card-subtitle>{{item.productShortCode}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src={{item.imageURL}} alt="Card Image" height="450" width="400">
-            <mat-card-content>
-                <p>
-                    {{item.description}}
-                </p>
-            </mat-card-content>
-            <mat-card-actions class="space-x-[10rem]">
-                <a routerLink="/product/{{item._id}}">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded">Detail</button>
-                </a>
-                <a routerLink="/my-cart">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded" (click)="addToCart(item)">
-                        Add to cart
+<div class="flex flex-wrap justify-center space-x-10 space-y-10 p-10" *ngIf="data">
+    <div *ngFor="let item of data" 
+        class=" bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <a routerLink="/product/{{item._id}}">
+            <img class="rounded-t-lg h-[15rem] w-[25rem]" src={{item.imageURL}} alt={{item.productName}} />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{item.productName}}</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{item.description}}</p>
+            <div class="space-x-20">
+                <a routerLink="/product/{{item._id}}"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button (click)="addToCart(item)">
+                        Detail
                     </button>
                 </a>
-            </mat-card-actions>
-        </mat-card>
+                <a routerLink="/my-cart"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button (click)="addToCart(item)">
+                        Add to cart
+                    </button>
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

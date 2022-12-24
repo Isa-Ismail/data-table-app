@@ -32,10 +32,19 @@ export class CreateProductComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       let name = this.form.value.productName.toLowerCase()
-      let short = this.form.value.productShortCode.toLowerCase().split(' ').join('-');
-      this.http.post(`${serverlessAPI}/products`, { ...this.form.value, productName: name, productShortCode: short }).subscribe(data => {
+      this.http.post(`${serverlessAPI}/products`, { ...this.form.value, productName: name }).subscribe(data => {
         console.log(data);
       });
+      this.form = this.formBuilder.group({
+      productName: ['', Validators.required],
+      productShortCode: ['', [Validators.required]],
+      description: ['', Validators.required],
+      category: ['', Validators.required],
+      price: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      isBest: [''],
+      origin: ['', Validators.required]
+    });
       console.log(this.form.value);
     }
   }
