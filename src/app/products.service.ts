@@ -28,6 +28,10 @@ export class ProductsService {
     return this.http.put(`${serverlessAPI}/products/${id}`, data);
   }
 
+  getProduct(id: string) {
+    return this.http.get(`${serverlessAPI}/products/${id}`);
+  }
+
   // sendDataToAPI(data: any) {
   //   return this.http.post(`${serverlessAPI}/products`, data).subscribe(data => {
   //     console.log(data);
