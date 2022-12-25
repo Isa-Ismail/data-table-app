@@ -22,6 +22,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
     CartComponent,
     DataTableComponent,
     HomeComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
