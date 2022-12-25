@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { serverlessAPI } from '../environments/env';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -9,14 +10,16 @@ import { serverlessAPI } from '../environments/env';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
+  message: number = 0
   form: FormGroup;
   categories: string[] = ['electronics', 'grocery', 'fashion', 'home', 'sports'];
   origin: string[] = ['Europe', 'china', 'Africa', 'USA', 'India'];
   best : boolean[] = [true, false];
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
+    this.message = 0;
     this.form = this.formBuilder.group({
       productName: ['', Validators.required],
       productShortCode: ['', [Validators.required]],
@@ -46,6 +49,7 @@ export class CreateProductComponent implements OnInit {
       origin: ['', Validators.required]
     });
       console.log(this.form.value);
+       this.message = 1;
     }
   }
 }
