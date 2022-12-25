@@ -1,1 +1,8 @@
-{{product.productName}}
+<div class="p-20">
+    <h1 class="text-2xl text-green-500 ">{{ product.productName }}</h1>
+    <div class="grid grid-cols-3 gap-4">
+        <img src="{{ product.imageURL}}" alt="Product Image 3" class="rounded-lg">
+    </div>
+    <p class="text-lg font-serif">{{ product.description }}</p>
+    <p class="text-l text-green-500">Price:$ {{ product.price }}</p>
+</div>
