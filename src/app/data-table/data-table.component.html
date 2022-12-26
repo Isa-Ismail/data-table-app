@@ -98,7 +98,7 @@
                     </td>
                     <td class="py-4 px-6 space-x-6">
                         <button routerLink="/products/edit/{{item._id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
-                        <button (click)="delete(item._id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                        <button [disabled]="deleteCondition(item._id)" (click)="delete(item._id)" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                     </td>
                 </tr>
             </tbody>

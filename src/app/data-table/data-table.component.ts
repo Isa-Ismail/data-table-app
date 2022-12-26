@@ -6,6 +6,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
+  q: any;
   data: any;
   page: number = 0;
   perPage: number = 10;
@@ -28,6 +29,16 @@ export class DataTableComponent implements OnInit {
       console.log(data);
       this.ngOnInit();
     });
+  }
+
+  deleteCondition(id: string) {
+    this.q = this.prod.items.find(item => (item.product._id === id));
+    console.log(this.q)
+    if (this.q) {
+      return false;
+    }else {
+      return true;
+    }
   }
   
   inc(): void {
