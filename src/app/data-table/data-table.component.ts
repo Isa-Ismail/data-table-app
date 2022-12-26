@@ -35,9 +35,9 @@ export class DataTableComponent implements OnInit {
     this.q = this.prod.items.find(item => (item.product._id === id));
     console.log(this.q)
     if (this.q) {
-      return false;
-    }else {
       return true;
+    }else {
+      return false;
     }
   }
   
