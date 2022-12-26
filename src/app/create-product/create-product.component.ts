@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { serverlessAPI } from '../environments/env';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -16,7 +15,7 @@ export class CreateProductComponent implements OnInit {
   origin: string[] = ['Europe', 'china', 'Africa', 'USA', 'India'];
   best : boolean[] = [true, false];
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
   ngOnInit() {
     this.message = 0;

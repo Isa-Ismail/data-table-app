@@ -46,11 +46,11 @@ export class ProductsService {
       totalPrice: product.price * quantity
     });
   }
-
+  
   getItems() {
     return this.items;
   }
-
+  
   getTotalPrice() {
     let total = 0;
     for (const item of this.items) {
