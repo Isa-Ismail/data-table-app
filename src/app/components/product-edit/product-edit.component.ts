@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { serverlessAPI } from '../environments/env';
+import { serverlessAPI } from '../../environments/env';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../products.service';
+import { ProductsService } from '../../shared/products.service';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',

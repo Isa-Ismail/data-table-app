@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductsService } from '../products.service';
+import { ProductsService } from '../../shared/products.service';
 
 @Component({
   selector: 'app-dashboard',
