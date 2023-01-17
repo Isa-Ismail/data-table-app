@@ -23,6 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { BarRatingModule } from 'ngx-bar-rating';
+import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +32,14 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     CartComponent,
     DataTableComponent,
     HomeComponent,
+    ProductComponent,
     CreateProductComponent,
     ProductEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BarRatingModule,
     AppRoutingModule,
     MatBadgeModule,
     MatInputModule,
@@ -47,10 +51,11 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     MatSortModule,
     MatCardModule,
     MatPaginatorModule,
+    MatBadgeModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,6 +21,10 @@ export class DashboardComponent {
     });
   }
 
+  // ngOnDestory() {
+  //   this.data.unsubscribe();
+  // }
+
   addToCart(product) {
     !this.prod.items.find(item => item.product._id === product._id) && this.prod.addToCart(product, this.q);this.cart = this.prod.items;
     console.log(this.cart);
